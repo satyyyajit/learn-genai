@@ -55,3 +55,19 @@ lemmatizer = WordNetLemmatizer()
 
 lemmatized_words = [lemmatizer.lemmatize(word) for word in words]
 print('process of lemmatization :\n', lemmatized_words)
+
+
+# POS # Part-of-speech (POS) tagging is the process of assigning grammatical categories, such as noun, verb, adjective, etc., to words in a sentence.
+# example - running is a verb, and it is tagged as 'VBG' in POS tagging.
+# for example, in the sentence "The cat is running", "The" is tagged as a determiner (DT), "cat" as a noun (NN), "is" as a verb (VBZ), and "running" as a gerund (VBG).
+# frame the sentence "The cat is running" and tag the words with their respective POS tags
+# feeding grammar to the machine to understand the sentence structure and meaning.
+
+from nltk.tokenize import TreebankWordDetokenizer
+from nltk import pos_tag, word_tokenize
+nltk.download('averaged_perceptron_tagger')  # Download POS tagger data
+
+sentence = "The cat is running"
+tokens = tokenizer.tokenize(sentence)
+pos_tags = pos_tag(tokens)
+print('POS tagging of the sentence "The cat is running":\n', pos_tags)
