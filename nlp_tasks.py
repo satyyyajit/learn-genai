@@ -65,9 +65,20 @@ print('process of lemmatization :\n', lemmatized_words)
 
 from nltk.tokenize import TreebankWordDetokenizer
 from nltk import pos_tag, word_tokenize
-nltk.download('averaged_perceptron_tagger')  # Download POS tagger data
+nltk.download('averaged_perceptron_tagger_eng')  # Download POS tagger data
 
 sentence = "The cat is running"
 tokens = tokenizer.tokenize(sentence)
 pos_tags = pos_tag(tokens)
 print('POS tagging of the sentence "The cat is running":\n', pos_tags)
+
+# Named Entity Recognition - is the process of identifying and classifying named entities, such as people, organizations, locations, dates, etc., in text data.
+# EXAMPLE - In the sentence "Apple Inc. is headquartered in Cupertino, California", "Apple Inc." is recognized as an organization, "Cupertino" as a location, and "California" as a location.
+
+from nltk import ne_chunk
+nltk.download('maxent_ne_chunker')  # Download Named Entity Chunker data
+nltk.download('words')  # Download words data for Named Entity Recognition
+named_entities = ne_chunk(pos_tags)
+print('Named Entity Recognition of the sentence "The cat is running":\n', named_entities)
+
+
